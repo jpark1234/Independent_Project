@@ -52,7 +52,7 @@ Texas.clean <- merge(texas.sub, Texas, by="fullname")
 
 #sentiment analysis set up 
 Texas.clean$statement_text2 <- as.character(Texas.clean$statement_text)
-Texas.clean$statement_text2 <- gsub("[[:punct:]]|â???T", " ", Texas.clean$statement_text2)
+Texas.clean$statement_text2 <- gsub("[[:punct:]]|ï¿½???T", " ", Texas.clean$statement_text2)
 Texas.clean$statement_text2 <-tolower(Texas.clean$statement_text2)
 
 require(stringr)
@@ -61,7 +61,7 @@ Texas.clean$neg.score = NULL
 Texas.clean$pos.score = NULL
 Texas.clean$relig.score = NULL
 
-#sentiment measures
+#sentiment analysis measures
 for(i in 1:length(Texas.clean$statement_text2)){
   statement<- unlist(str_split(Texas.clean$statement_text2[i], "\\s+"))
   neg <- match(statement, huliu.neg)
